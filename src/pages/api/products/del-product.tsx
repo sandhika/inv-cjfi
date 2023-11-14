@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export default async (req, res) => {
+export default async (req: any, res:any) => {
   const { id } = req.body;
   try {
     const deleteFood = await prisma.product.delete({

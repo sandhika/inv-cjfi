@@ -28,7 +28,7 @@ model Product {
     price       Decimal
     qty          Int
     image       String
-    category    Category? @relation(fields: [category_id], references: [id])
+    category    Category?  @relation("CategoriesProduct", fields: [category_id], references: [id])
     category_id Int
     createdAt     DateTime  @default(now()) @map(name: "created_at")
     updatedAt     DateTime  @updatedAt @map(name: "updated_at")
@@ -42,5 +42,5 @@ model Category {
     description String
     createdAt     DateTime  @default(now()) @map(name: "created_at")
     updatedAt     DateTime  @updatedAt @map(name: "updated_at")
-    products    Product[]
+    products    Product[]  @relation("CategoriesProduct")
 }
